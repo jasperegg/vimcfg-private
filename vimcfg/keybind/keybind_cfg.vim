@@ -167,10 +167,10 @@ let g:which_key_map.g = {
 " search keybinding config
 nmap <leader>si         :Tabularize /
 vmap <leader>si         :Tabularize /
-nmap <silent><leader>sA :AsyncRun ag --vimgrep <c-r><c-w><cr>
+nmap <silent><leader>sA :AsyncRun ag -i <c-r><c-w><cr>
 nmap <silent><leader>sG :AsyncRun grep -rn <c-r><c-w><cr>
 nmap <silent><leader>sd :AsyncRun rg --vimgrep -rn <c-r><c-w><cr>
-nmap <silent><leader>sa :Ag <c-r><c-w><cr>
+nmap <silent><leader>sa :AsyncRun ag <c-r><c-w><cr>
 nmap <silent><leader>sr :Rg <c-r><c-w><cr>
 
 " Create mappings (with leader)
