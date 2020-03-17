@@ -50,36 +50,45 @@ let g:which_key_map.d = {
 " nmap <silent><leader>jA    :cs find a <C-R>=expand("<cword>")<CR><CR>
 
 " gutentag_plus key-binding config
-noremap <silent><leader>js :GscopeFind s <C-R><C-W><cr>
-noremap <silent><leader>jd :GscopeFind g <C-R><C-W><cr>
-noremap <silent><leader>jr :GscopeFind c <C-R><C-W><cr>
-noremap <silent><leader>jt :GscopeFind t <C-R><C-W><cr>
-noremap <silent><leader>je :GscopeFind e <C-R><C-W><cr>
-noremap <silent><leader>jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent><leader>ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent><leader>jI :GscopeFind d <C-R><C-W><cr>
-noremap <silent><leader>jA :GscopeFind a <C-R><C-W><cr>
+
+noremap <silent><leader>js :GscopeFind s <C-R><C-W><cr>j
+noremap <silent><leader>jd :GscopeFind g <C-R><C-W><cr>j
+noremap <silent><leader>jr :GscopeFind c <C-R><C-W><cr>j
+noremap <silent><leader>jt :GscopeFind t <C-R><C-W><cr>j
+noremap <silent><leader>je :GscopeFind e <C-R><C-W><cr>j
+noremap <silent><leader>jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>j
+noremap <silent><leader>ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>j
+noremap <silent><leader>ja :GscopeFind a <C-R><C-W><cr>j
+" not common for use
+" noremap <silent><leader>jI :GscopeFind d <C-R><C-W><cr>
+
 
 "leaderf gtags integration
 " noremap <silent><leader>jd :Leaderf! gtags -d <c-r><c-w><cr>
 " noremap <silent><leader>jr :Leaderf! gtags -r <c-r><c-w><cr>
 " noremap <silent><leader>js :Leaderf! gtags -s <c-r><c-w><cr>
 " noremap <silent><leader>jg :Leaderf! gtags -g <c-r><c-w><cr>
+" noremap <silent><leader>jr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <silent><leader>jd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <silent><leader>js :<C-U><C-R>=printf("Leaderf! gtags -s %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <silent><leader>je :<C-U><C-R>=printf("Leaderf! gtags -g %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <silent><leader>jl :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+" noremap <silent><leader>jb :<C-U><C-R>=printf("Leaderf gtags --current-buffer --result ctags-mod %s", "")<CR><CR>
+" noremap <silent><leader>jB :<C-U><C-R>=printf("Leaderf gtags --all-buffers --result ctags-mod %s", "")<CR><CR>
+" noremap <silent><leader>ja :<C-U><C-R>=printf("Leaderf gtags --all --result ctags-mod %s", "")<CR><CR>
 
 let g:which_key_map.j = {
       \ 'name' : '+Jump',
-      \ 'd'    : 'gtags-jump-definition',
-      \ 'r'    : 'gtags-jump-reference',
-      \ 's'    : 'gtags-jump-symbol',
-      \ 'e'    : 'gtags-jump-egrep',
-      \ 'f'    : 'gtags-jump-file',
-      \ 't'    : 'gtags-jump-text',
-      \ 'i'    : 'gtags-jump-file-include-this-file',
-      \ 'I'    : 'gtags-jump-functions-called-by-this-function',
-      \ 'A'    : 'gtags-jump-where-this-symbol-is-assigned-value',
-      \ 'a'    : [':LeaderfFunction', 'leaderf-jump-current-functions'],
-      \ 'b'    : [':LeaderfBufTag', 'leaderf-jump-current-tag'],
-      \ 'h'    : [':LeaderfBufTagAll', 'leaderf-jump-all-tag'],
+      \ 'd'    : 'jump-definition',
+      \ 'r'    : 'jump-reference',
+      \ 's'    : 'jump-symbol',
+      \ 'e'    : 'jump-egrep',
+      \ 't'    : 'jump-text',
+      \ 'f'    : 'jump-file',
+      \ 'i'    : 'jump-file-include-this-file',
+      \ 'a'    : 'jump-symbol-is-assigned',
+      \ 'b'    : [':LeaderBufTag', 'current-buffer-tag'],
+      \ 'B'    : [':LeaderBufTagAll', 'all-buffers-tag'],
       \ }
       
       " \ 's'    : 'gtags-jump-symbol',
@@ -125,7 +134,7 @@ let g:which_key_map.h = {
 " vim quickfix open/close keybinding config
 let g:which_key_map.q = {
       \ 'name' : '+Quickfix',
-      \ 'o'    : [':botright cw 5', 'open-quickfix-win'],
+      \ 'o'    : [':botright cw 10', 'open-quickfix-win'],
       \ 'c'    : [':ccl', 'close-quickfix-win'],
       \ }
 
@@ -146,7 +155,7 @@ let g:which_key_map.f = {
       \ 'F'    : [':Files', 'fzf-find-file'],
       \ 'l'    : 'locate-find-file',
       \ 'g'    : [':GFiles', 'git-find-file'],
-      \ 'r'    : [':History', 'fzf-find-recent-file'],
+      \ 'r'    : [':LeaderfMru', 'most-recent-used-file'],
       \ 't'    : [':NERDTreeToggle', 'file-tree-browser-toggle'],
       \ 'c'    : [':NERDTreeFind %', 'current-file-tree-browser'],
       \ 'L'    : 'async-locate-find-file',
