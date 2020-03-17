@@ -50,6 +50,7 @@ let g:which_key_map.d = {
 " nmap <silent><leader>jA    :cs find a <C-R>=expand("<cword>")<CR><CR>
 
 " gutentag_plus key-binding config
+
 noremap <silent><leader>js :GscopeFind s <C-R><C-W><cr>j
 noremap <silent><leader>jd :GscopeFind g <C-R><C-W><cr>j
 noremap <silent><leader>jr :GscopeFind c <C-R><C-W><cr>j
@@ -61,12 +62,12 @@ noremap <silent><leader>ja :GscopeFind a <C-R><C-W><cr>j
 " not common for use
 " noremap <silent><leader>jI :GscopeFind d <C-R><C-W><cr>
 
+
 "leaderf gtags integration
 " noremap <silent><leader>jd :Leaderf! gtags -d <c-r><c-w><cr>
 " noremap <silent><leader>jr :Leaderf! gtags -r <c-r><c-w><cr>
 " noremap <silent><leader>js :Leaderf! gtags -s <c-r><c-w><cr>
 " noremap <silent><leader>jg :Leaderf! gtags -g <c-r><c-w><cr>
-
 " noremap <silent><leader>jr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 " noremap <silent><leader>jd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 " noremap <silent><leader>js :<C-U><C-R>=printf("Leaderf! gtags -s %s --auto-jump", expand("<cword>"))<CR><CR>
@@ -175,11 +176,11 @@ let g:which_key_map.g = {
 " search keybinding config
 nmap <leader>si         :Tabularize /
 vmap <leader>si         :Tabularize /
-nmap <silent><leader>sA :AsyncRun ag --vimgrep <c-r><c-w><cr>
+nmap <silent><leader>sA :AsyncRun ag -i <c-r><c-w><cr>
 nmap <silent><leader>sG :AsyncRun grep -rn <c-r><c-w><cr>
-nmap <silent><leader>sd :AsyncRun rg --vimgrep -rn <c-r><c-w><cr>
-nmap <silent><leader>sa :Ag <c-r><c-w><cr>
-nmap <silent><leader>sr :Rg <c-r><c-w><cr>
+nmap <silent><leader>sd :AsyncRun rg --vimgrep -irn <c-r><c-w><cr>
+nmap <silent><leader>sa :AsyncRun ag <c-r><c-w><cr>
+nmap <silent><leader>sr :AsyncRun rg --vimgrep -rn <c-r><c-w><cr>
 
 " Create mappings (with leader)
 nmap <Leader>ss <Plug>(AerojumpSpace)
