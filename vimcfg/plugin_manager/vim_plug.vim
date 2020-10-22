@@ -35,19 +35,24 @@ call plug#begin('~/.vim/plugged')
 
 " Initialize plugin system
 " Plug 'vim-scripts/minibufexplorerpp'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/gtags.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/limelight.vim'
 " Plug 'vim-airline/vim-airline'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+if has("win32")
+    Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
+else
+    Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+endif
 " Plug 'Valloric/YouCompleteMe'
-Plug 'vim-scripts/winmanager'
+" Plug 'vim-scripts/winmanager'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'morhetz/gruvbox'
@@ -69,7 +74,7 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisu
 " autocmd! User vim-which-key call which#register('<Space>', 'g:which_key_map')
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
-" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 Plug 'ludovicchabant/vim-gutentags'
@@ -78,36 +83,69 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'skywind3000/vim-preview'
 Plug 'kien/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'altercation/vim-colors-solarized'
-Plug 'kien/rainbow_parentheses.vim'
+" Plug 'kien/rainbow_parentheses.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'arakashic/chromatica.nvim'
-Plug 'brooth/far.vim'
-Plug 'wsdjeg/FlyGrep.vim'
+" Plug 'brooth/far.vim'
+" Plug 'wsdjeg/FlyGrep.vim'
 " Plug 'neomake/neomake'
 " Plug 'mhinz/vim-grepper'
-Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'mhinz/vim-startify'
+Plug 'ABigBright/aerojump.nvim', { 'branch': 'for_briq_vimcfg', 'do': ':UpdateRemotePlugins' }
+Plug 'mhinz/vim-startify'
 
 " Plug 't9md/vim-choosewin'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'trusktr/seti.vim'
 Plug 'andymass/vim-matchup'
 " Plug 'ryanoasis/nerd-fonts', {'do': './install FiraCode'}
 Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " If you don't have nodejs and yarn
 " use pre build
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " If you have nodejs and yarn
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Plug 'connorholyday/vim-snazzy'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
+"
+Plug 'guns/xterm-color-table.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+
+Plug 'liuchengxu/vista.vim'
+
+Plug 'liuchengxu/eleline.vim' 
+
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'voldikss/vim-translator'
+Plug 'pechorin/any-jump.vim'
+Plug 'airblade/vim-rooter'
+Plug 'wincent/ferret'
+Plug 'kkoomen/vim-doge'
+Plug 'Raimondi/delimitMate'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'RRethy/vim-illuminate'
+Plug 'svermeulen/vim-subversive'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'kevinhwang91/rnvimr'
+Plug 'wellle/tmux-complete.vim'
+Plug 'mbbill/undotree'
+Plug 'junegunn/vim-peekaboo'
+Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'mg979/vim-xtabline'
+" Plug 'camspiers/lens.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'blueyed/vim-diminactive'
+Plug 'puremourning/vimspector'
 
 call plug#end()
