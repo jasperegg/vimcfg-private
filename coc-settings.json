@@ -1,22 +1,16 @@
 {
-"bookmark.enable": {
-    "type": "boolean",
-    "default": true,
-    "description": "Whether to enable this extension"
+"coc.preferences.jumpCommand":"drop",
+
+"languageserver": {
+    "clangd": {
+        "command": "clangd",
+        "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+        "filetypes": ["c", "cpp", "objc", "objcpp"]
+    }
 },
-"bookmark.maxsize": {
-    "type": "number",
-    "default": 5000,
-    "description": "Maxsize of bookmark"
+
+"list.normalMappings":{
+    "v" : "action:vsplit",
 },
-"bookmark.sign": {
-    "type": "string",
-    "default": "⚑",
-    "description": "Bookmark icon for sign column"
-},
-"bookmark.signHi": {
-  "type": "string",
-  "default": "Identifier",
-  "description": "Highlight group for sign"
-}
+
 }

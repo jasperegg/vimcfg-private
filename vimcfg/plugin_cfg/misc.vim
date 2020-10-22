@@ -11,6 +11,8 @@ set splitbelow
 set splitright
 set wildmenu
 set scrolloff=5
+syntax on
+set background=dark
 " set list
 
 " color define 
@@ -42,8 +44,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
 set autoread
-syntax on
-set background=dark
 set nobackup
 
 if !has('nvim')
