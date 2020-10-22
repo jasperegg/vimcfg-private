@@ -11,20 +11,49 @@ set splitbelow
 set splitright
 set wildmenu
 set scrolloff=5
+syntax on
+set background=dark
+set conceallevel=3
 " set list
 
 " color define 
-let s:molokai_prefix = g:vims_prefix . 'plugged/molokai/colors'
+let s:molokai_prefix   = g:vims_prefix . 'plugged/molokai/colors'
 let s:solarized_prefix = g:vims_prefix . 'plugged/vim-colors-solarized/colors'
-let s:onehalf_prefix = g:vims_prefix . 'plugged/onehalf/vim/colors'
-" let s:snazzy_prefix = g:vims_prefix . 'plugged/vim-snazzy/colors'
+let s:onehalf_prefix   = g:vims_prefix . 'plugged/onehalf/vim/colors'
+let s:snazzy_prefix    = g:vims_prefix . 'plugged/vim-snazzy/colors'
+let s:gruvbox_prefix   = g:vims_prefix . 'plugged/gruvbox/colors'
+let s:dracula_prefix   = g:vims_prefix . 'plugged/dracula/colors'
 
-" if !empty(findfile("snazzy.vim", s:snazzy_prefix))
-"     colo snazzy
-if !empty(findfile("onehalfdark.vim", s:onehalf_prefix))
+function! g:Transparent_enable(en)
+    if a:en == 1
+        highlight  Normal              guibg=NONE   ctermbg=NONE
+        highlight  SignColumn          guibg=NONE   ctermbg=NONE
+        highlight  DiffAdd             guibg=NONE   ctermbg=NONE
+        highlight  DiffDelete          guibg=NONE   ctermbg=NONE
+        highlight  DiffChange          guibg=NONE   ctermbg=NONE
+        highlight  SignifyLineDelete   guibg=NONE   ctermbg=NONE
+        highlight  SignifyLineChange   guibg=NONE   ctermbg=NONE
+    endif
+endfunction
+
+if !empty(findfile("dracula.vim", s:dracula_prefix))
+    colo dracula
+elseif !empty(findfile("gruvbox.vim", s:gruvbox_prefix))
+    colo gruvbox
+elseif !empty(findfile("onehalfdark.vim", s:onehalf_prefix))
     colo onehalfdark
+    hi Pmenu ctermbg=235 ctermfg=244
+    " hi CursorLine ctermbg=58
+    " call Transparent_enable(1)
 elseif !empty(findfile("molokai.vim", s:molokai_prefix))
     colo molokai
+    call Transparent_enable(1)
+elseif !empty(findfile("snazzy.vim", s:snazzy_prefix))
+    " semi-transparent
+    let g:SnazzyTransparent = 1
+    colo snazzy
+    hi Pmenu ctermbg=235 ctermfg=244
+    hi CursorLine ctermbg=58
 elseif !empty(findfile("solarized.vim", s:solarized_prefix))
     colo solarized
 else
@@ -42,8 +71,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
 set autoread
-syntax on
-set background=dark
 set nobackup
 
 if !has('nvim')
@@ -67,6 +94,11 @@ if has("gui_running")
 
     endif
 
+endif
+
+if has("win32")
+    let g:python_host_prog  = 'D:\Program Files\Python38\python.exe'
+    let g:python3_host_prog = 'D:\Program Files\Python38\python.exe'
 endif
 
 " script demo
